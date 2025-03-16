@@ -1,2 +1,1 @@
-# dirops-next.js
-eval
+# A17-next-js
