@@ -8,13 +8,23 @@ import { toast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { createClient } from "@/lib/supabase/client"
 
-console.log("Component EvaluationForm rendu")
-
 export function EvaluationForm() {
   const router = useRouter()
   const supabase = createClient()
   const [isSubmitting, setIsSubmitting] = useState(false)
   
+  // Initialisation du formulaire avec des valeurs vides
+  const [formData, setFormData] = useState({
+    date: "",
+    agent_evaluation: "",
+    section: "",
+    matricule: "",
+    indicatif: "",
+    observation: "",
+  })
+
+  console.log("🚀 Formulaire affiché avec les données suivantes:", formData)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -68,12 +78,17 @@ export function EvaluationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Button type="submit" disabled={isSubmitting}>
-        Soumettre l'évaluation
-      </Button>
+    <div>
+      <p>✅ Test: Le formulaire devrait être ici</p>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Nom" />
+        <input type="text" placeholder="Matricule" />
+        <Button type="submit" disabled={isSubmitting}>
+          Soumettre l'évaluation
+        </Button>
+      </form>
       <Toaster />
-    </form>
+    </div>
   )
 }
 
