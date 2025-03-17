@@ -8,6 +8,8 @@ import { toast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { createClient } from "@/lib/supabase/client"
 
+console.log("Component EvaluationForm rendu")
+
 export function EvaluationForm() {
   const router = useRouter()
   const supabase = createClient()
